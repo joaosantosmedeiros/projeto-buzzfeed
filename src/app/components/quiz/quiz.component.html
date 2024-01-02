@@ -1,0 +1,25 @@
+<div class="quiz__container">
+  <div class="quiz_logo flex-centered">
+    <img src="/assets/img/logo.png" alt="BuzzFeed logo" />
+    <h3>{{ title }}</h3>
+  </div>
+
+  <div *ngIf="!isFinished" class="quiz_questions flex-centered">
+    <h3>{{ selectedQuestion.question }}</h3>
+  </div>
+
+  <div *ngIf="!isFinished" class="quiz_options">
+    <button
+      *ngFor="let option of selectedQuestion.options"
+      class="btn-option"
+      (click)="playerChoice(option.alias)"
+    >
+      {{ option.name }}
+    </button>
+  </div>
+
+  <div *ngIf="isFinished" class="quiz_results flex-centered">
+    <h1>O seu resultado é</h1>
+    <p>{{ result }}</p>
+  </div>
+</div>
